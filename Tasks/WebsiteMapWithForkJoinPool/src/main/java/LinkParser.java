@@ -23,7 +23,7 @@ public class LinkParser extends RecursiveTask<LinkedHashSet<String>> {
         List<LinkParser> tasks = new ArrayList<>();
 
         try {
-            Thread.sleep(150);
+            Thread.sleep(100);
             set.add(url);
             Elements elements = Jsoup.connect(url).get().getElementsByTag("a");
             for (Element element : elements) {
