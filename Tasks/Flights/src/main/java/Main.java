@@ -63,10 +63,7 @@ public class Main {
     }
 
     public static String percentileFlightTime(List<Integer> durations, int percent) {
-        double num = (double) percent * (durations.size()-1) / 100 + 1;
-        System.out.println(num);
-//        int percentile = (num == (int) num) ? durations.get((int) num) : durations.get((int) Math.ceil(num - 1));
-
+        double num = (double) percent * (durations.size() - 1) / 100 + 1;
         double percentile = durations.get((int) Math.floor(num - 1)) + (num % Math.floor(num)) * (durations.get((int) Math.floor(num)) - durations.get((int) Math.floor(num - 1)));
 
         return percent + " percentile" + goodVision(percentile);
