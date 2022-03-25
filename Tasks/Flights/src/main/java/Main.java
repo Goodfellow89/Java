@@ -19,7 +19,7 @@ public class Main {
     public static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:mm");
 
     public static void main(String[] args) {
-        String file = "src/main/resources/tickets.json";
+        String file = "tickets.json";
         int percent = 90;
 
         JSONObject tickets = parseJSON(file);
@@ -63,7 +63,7 @@ public class Main {
     }
 
     public static String percentileFlightTime(List<Integer> durations, int percent) {
-        double num = (double) percent * (durations.size() - 1) / 100 + 1;
+        double num = (double) percent * durations.size() / 100;
         double percentile = durations.get((int) Math.floor(num - 1)) + (num % Math.floor(num)) * (durations.get((int) Math.floor(num)) - durations.get((int) Math.floor(num - 1)));
 
         return percent + " percentile" + goodVision(percentile);
